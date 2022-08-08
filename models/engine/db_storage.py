@@ -1,9 +1,12 @@
 #!/usr/bin/python3
 """define a class to manage database storage"""
 from sqlalchemy import create_engine
-from models.base_model import Base, BaseModel
+from models.base_model import Base
 import os
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm import sessionmaker, scoped_session
+from models.state import State
+from models.city import City
+
 
 class DBStorage:
     """define a class to manage database storage for hbnb project"""
@@ -13,22 +16,23 @@ class DBStorage:
     def __init__(self):
         """initialise DBStorage class"""
         user = os.getenv("HBNB_MYSQL_USER")
-        psd = os.getenv("HBNB_MYSQL_PWD")
+        pwd = os.getenv("HBNB_MYSQL_PWD")
         host = os.getenv("HBNB_MYSQL_HOST")
         db = os.getenv("HBNB_MYSQL_DB")
-        engeine = create_engine('mysql+mysqldb://{user}:{psd}@{host}/{db}',
-                           pool_pre_ping=True)
-        if (os.getenv("HBNB_ENV") == "test")
-            Base.metadata.drop_all(engine)
+        self.__engine = create_engine("mysql+mysqldb://{}:{}@{}/{}"
+                                       .format(user, pwd, host, db),
+                                       pool_pre_ping=True)
+        if os.getenv("HBNB_ENV") == "test":
+            Base.metadata.drop_all(self.__engine)
 
     def all(self, cls=None):
         """query on current database session all objects depending of class"""
         modelDict = {}
-        classes = {User, State, City, Amenity, Place, Review}
+        classes = {State, City}
         if cls is not None:
             classes = {cls}
         for cls in classes:
-            objs = self.__session().query(cls).all()
+            objs = self.__session.query(cls).all()
             for obj in objs:
                 key = cls.__name__ + "." + obj.id
                 modelDict[key] = obj
@@ -51,4 +55,5 @@ class DBStorage:
         """create all tables in the database and new database session"""
         Base.metadata.create_all(self.__engine)
         session = sessionmaker(bind=self.__engine, expire_on_commit=False)
-        self.__session = scoped_session(session)
+        Session = scoped_session(session)
+        self.__session = Session()
