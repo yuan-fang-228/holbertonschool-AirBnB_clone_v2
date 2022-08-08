@@ -15,23 +15,23 @@ class State(BaseModel, Base):
     name = Column(String(128), nullable=False)
 
 
-if getenv('HBNB_TYPE_STORAGE') == "FileStorage":
-    """ storage = Filestorage """
-    name = ""
+    if getenv('HBNB_TYPE_STORAGE') == "FileStorage":
+        """ storage = Filestorage """
+        name = ""
 
-    @property
-    def cities(self):
-        """ a getter that returns a list of cities
-            where city.state_id == states.id
-        """
-        citylist = []
-        cities = models.storage.all(City)
-        for city in cities.values():
-            if city.state_id == self.id:
-                citylist.append(city)
-        return citylist
+        @property
+        def cities(self):
+            """ a getter that returns a list of cities
+                where city.state_id == states.id
+            """
+            citylist = []
+            cities = models.storage.all(City)
+            for city in cities.values():
+                if city.state_id == self.id:
+                    citylist.append(city)
+            return citylist
 
-else:
-    """ storage = db """
-    cities = relationship("City", cascade="all, delete",
-                          back_populates="State")
+    else:
+        """ storage = db """
+        cities = relationship("City", cascade="all, delete",
+                            backref="state")
