@@ -129,14 +129,10 @@ class HBNBCommand(cmd.Cmd):
                 key = key_value[0]
                 value = key_value[1]
                 if value[0] == '"' and value[-1] == '"':
-                    value_stripped = value.strip('"')
-                    value = value_stripped.replace('_', ' ')
-                    #value = value_with_spaces.replace('"', '\\"')
-                    """
+                    value = value[1:-1].replace('_', ' ')
                     for index, char in enumerate(value):
                         if char == '"' and (index == 0 or value[index-1] != '\\'):
                             return
-                    """
                 elif '.' in value:
                     value = float(value)
                 elif value.isdigit():
