@@ -22,15 +22,10 @@ class Place(BaseModel, Base):
     longitude = Column(Float, nullable=True)
     amenity_ids = []
 
-    if os.getenv("HBNB_TYPE_STORAGE") == "db":
+    if os.getenv("HBNB_TYPE_STORAGE") == "DBStorage":
         reviews = relationship("Review", backref="place")
-    else:
+    if os.getenv("HBNB_TYPE_STORAGE") == "FileStorage":
         @property
         def reviews(self):
             """getter attribute returns the list of Review instances"""
             reviewList = []
-            reviewAll = models.storage.all(Review)
-            for review in reviewAll.value():
-                if self.id == review.place_id:
-                    reviewList.append(review)
-            return reviewList
