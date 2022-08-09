@@ -32,7 +32,7 @@ class DBStorage:
     def all(self, cls=None):
         """query on current database session all objects depending of class"""
         modelDict = {}
-        classes = {State, City, User, Place, Review}
+        classes = {State, City, User, Place, Review, Amenity}
         if cls is not None:
             classes = {cls}
         for cls in classes:
