@@ -3,18 +3,22 @@
 from models.base_model import BaseModel, Base
 from sqlalchemy import Column, String
 from sqlalchemy.orm import relationship
-from os import getenv
-import models
 from models.city import City
+import models
+import os
 
 
 class State(BaseModel, Base):
     """ State class """
 
     __tablename__ = "states"
-    name = Column(String(128), nullable=False)
 
-    if getenv('HBNB_TYPE_STORAGE') == "FileStorage":
+    if os.getenv('HBNB_TYPE_STORAGE') == "db":
+        """ storage = db """
+        name = Column(String(128), nullable=False)
+        cities = relationship("City", cascade="all, delete",
+                              backref="state")
+    else:
         """ storage = Filestorage """
         name = ""
 
@@ -29,8 +33,3 @@ class State(BaseModel, Base):
                 if city.state_id == self.id:
                     citylist.append(city)
             return citylist
-
-    else:
-        """ storage = db """
-        cities = relationship("City", cascade="all, delete",
-                              backref="state")
