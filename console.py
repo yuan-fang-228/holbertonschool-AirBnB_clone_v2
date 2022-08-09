@@ -134,7 +134,8 @@ class HBNBCommand(cmd.Cmd):
                     #value = value_with_spaces.replace('"', '\\"')
                     """
                     for index, char in enumerate(value):
-                        if char == '"' and (index == 0 or value[index-1] != '\\'):
+                        if char == '"' and
+                        (index == 0 or value[index-1] != '\\'):
                             return
                     """
                 elif '.' in value:
@@ -208,7 +209,7 @@ class HBNBCommand(cmd.Cmd):
         key = c_name + "." + c_id
 
         try:
-            del(storage.all()[key])
+            del (storage.all()[key])
             storage.save()
         except KeyError:
             print("** no instance found **")
