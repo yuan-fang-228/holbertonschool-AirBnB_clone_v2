@@ -7,7 +7,7 @@ from models.place import place_amenity
 import OS
 
 
-class Amenity(BaseModel):
+class Amenity(BaseModel, Base):
     """Amenities of the place to stay"""
     __tablename__ = 'amenities'
     name = Column(String(128), nullable=False)
