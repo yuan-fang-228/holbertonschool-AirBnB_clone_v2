@@ -1,5 +1,4 @@
 <center> <h1>HBNB - The Console</h1> </center>
-![65f4a1dd9c51265f49d0](https://user-images.githubusercontent.com/98162365/176899920-64b889dc-9e43-4413-b0a4-b1821b53dc2b.png)
 This repository contains the initial stage of a student project to build a clone of the AirBnB website. This stage implements a backend interface, or console, to manage program data. Console commands allow the user to create, update, and destroy objects, as well as manage file storage. Using a system of JSON serialization/deserialization, storage is persistent between sessions.
 
 ---
@@ -8,20 +7,21 @@ This repository contains the initial stage of a student project to build a clone
 
 | File | File Location | Description |
 | ---- | ------------- | ------------|
-| Authors/README File | [AUTHORS](https://github.com/nhiyn14/holbertonschool-AirBnB_clone_v2/blob/master/AUTHORS) | Project authors |
+| Authors | [AUTHORS](https://github.com/nhiyn14/holbertonschool-AirBnB_clone_v2/blob/master/AUTHORS) | Project authors |
+| README | [README.md](https://github.com/nhiyn14/holbertonschool-AirBnB_clone_v2/blob/master/README.md) | README file |
 | Unit Testing | [/tests](https://github.com/nhiyn14/holbertonschool-AirBnB_clone_v2/tree/master/tests) | All class-defining modules are unittested |
-| BaseModel class | [/models/base_model.py](https://github.com/justinmajetich/AirBnB_clone/blob/dev/models/base_model.py) | Defines a parent class to be inherited by all model classes| 
-| FileStorage | [/models/engine/file_storage.py](https://github.com/nhiyn14/holbertonschool-AirBnB_clone_v2/blob/master/models/engine/file_storage.py) [/models/_ _init_ _.py](https://github.com/nhiyn14/holbertonschool-AirBnB_clone_v2/blob/master/models/__init__.py) | Defines a class to manage persistent file storage system|
-| DBStorage | [/models/engine/db_storage.py] (https://github.com/nhiyn14/holbertonschool-AirBnB_clone_v2/blob/master/models/engine/db_storage.py) | Defines a class to manage persistent database storage system |
+| FileStorage | [/models/engine/file_storage.py](https://github.com/nhiyn14/holbertonschool-AirBnB_clone_v2/blob/master/models/engine/file_storage.py) | Defines a class to manage persistent file storage system |
+| DBStorage | [/models/engine/db_storage.py](https://github.com/nhiyn14/holbertonschool-AirBnB_clone_v2/blob/master/models/engine/db_storage.py) | Defines a class to manage persistent database storage system |
 | Console | [console.py](https://github.com/nhiyn14/holbertonschool-AirBnB_clone_v2/blob/master/console.py) | Add basic functionality to console program, allowing it to create, destroy, show, and update stored data, quit, handle empty lines and ^D |
+| BaseModel class | [/models/base_model.py](https://github.com/nhiyn14/holbertonschool-AirBnB_clone_v2/blob/master/models/base_model.py) | Defines a parent class to be inherited by all model classes| 
 | User class | [/models/user.py](https://github.com/justinmajetich/AirBnB_clone/blob/dev/console.py) | Dynamically implements a user class |
-| State class | [/models/state.py] (https://github.com/nhiyn14/holbertonschool-AirBnB_clone_v2/blob/master/models/state.py) | Dynamically implements State classes |
-| City class | [/models/city.py] (https://github.com/nhiyn14/holbertonschool-AirBnB_clone_v2/blob/master/models/city.py) | Dynamically implements City classes |
-| Place class | [/models/place.py] (https://github.com/nhiyn14/holbertonschool-AirBnB_clone_v2/blob/master/models/place.py) | Dynamically implements Place classes |
-| Amenity class | [/models/amenity.py] (https://github.com/nhiyn14/holbertonschool-AirBnB_clone_v2/blob/master/models/amenity.py) | Dynamically implements Review classes |
+| State class | [/models/state.py](https://github.com/nhiyn14/holbertonschool-AirBnB_clone_v2/blob/master/models/state.py) | Dynamically implements State classes |
+| City class | [/models/city.py](https://github.com/nhiyn14/holbertonschool-AirBnB_clone_v2/blob/master/models/city.py) | Dynamically implements City classes |
+| Place class | [/models/place.py](https://github.com/nhiyn14/holbertonschool-AirBnB_clone_v2/blob/master/models/place.py) | Dynamically implements Place classes |
+| Amenity class | [/models/amenity.py](https://github.com/nhiyn14/holbertonschool-AirBnB_clone_v2/blob/master/models/amenity.py) | Dynamically implements Review classes |
 | Review class |  [/models/review.py](https://github.com/justinmajetich/AirBnB_clone/blob/dev/models/review.py) | Dynamically implements Review classes |
 | Set up MySQL server | [setup_mysql_dev.sql](https://github.com/nhiyn14/holbertonschool-AirBnB_clone_v2/blob/master/setup_mysql_dev.sql) | prepares a MySQL server for the project |
-| Set up mySQLP test | [setup_mysql_test.sql] (https://github.com/nhiyn14/holbertonschool-AirBnB_clone_v2/blob/master/setup_mysql_test.sql) | prepares a MySQL server for the project |
+| Set up mySQLP test | [setup_mysql_test.sql](https://github.com/nhiyn14/holbertonschool-AirBnB_clone_v2/blob/master/setup_mysql_test.sql) | prepares a MySQL server for the project |
 
 <center> <h2>General Use</h2> </center>
 
