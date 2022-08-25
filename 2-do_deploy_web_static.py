@@ -13,14 +13,14 @@ def do_deploy(archive_path):
         put(archive_path, "/tmp/")
         filename = archive_path.split("/")[-1]
         onlyfilename = filename.split(".")[0]
-        uncompressfolder = "/data/web_static/releases/{}/".format(onlyfilename)
-        run("mkdir -p {}".format(uncompressfolder))
-        run("tar -zxvf /tmp/{} -C {}".format(filename, uncompressfolder))
+        uncompressfd = "/data/web_static/releases/{}/".format(onlyfilename)
+        run("mkdir -p {}".format(uncompressfd))
+        run("tar -zxvf /tmp/{} -C {}".format(filename, uncompressfd))
         run("rm /tmp/{}".format(filename))
-        run("mv {}/web_static/* {}/".format(uncompressfolder, uncompressfolder))
-        run("rm -rf {}/web_static".format(uncompressfolder))
+        run("mv {}/web_static/* {}/".format(uncompressfd, uncompressfd))
+        run("rm -rf {}/web_static".format(uncompressfd))
         run("rm -rf /data/web_static/current")
-        run("ln -s {} /data/web_static/current".format(uncompressfolder))
+        run("ln -s {} /data/web_static/current".format(uncompressfd))
         return True
     except Exception:
         return False
