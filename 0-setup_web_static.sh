@@ -2,7 +2,7 @@
 # Bash script to set up web server
 sudo apt-get update -y
 sudo apt-get install -y nginx
-
+sudo service nginx start
 sudo mkdir -p /data/web_static/releases/test/
 sudo mkdir -p /data/web_static/shared/
 sudo echo "Holberton School" > /data/web_static/releases/test/index.html
