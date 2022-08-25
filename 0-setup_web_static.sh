@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 # Bash script to set up web server
-sudo apt-get update -y
-sudo apt-get install -y nginx
+sudo apt-get update
+sudo apt-get -y upgrade
+sudo apt-get -y install nginx
 sudo service nginx start
 sudo mkdir -p /data/web_static/releases/test/
 sudo mkdir -p /data/web_static/shared/
