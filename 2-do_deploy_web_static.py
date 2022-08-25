@@ -17,8 +17,8 @@ def do_deploy(archive_path):
         run("mkdir -p {}".format(uncompressfd))
         run("tar -zxvf /tmp/{} -C {}".format(filename, uncompressfd))
         run("rm /tmp/{}".format(filename))
-        run("mv {}/web_static/* {}/".format(uncompressfd, uncompressfd))
-        run("rm -rf {}/web_static".format(uncompressfd))
+        run("mv {}web_static/* {}/".format(uncompressfd, uncompressfd))
+        run("rm -rf {}web_static".format(uncompressfd))
         run("rm -rf /data/web_static/current")
         run("ln -s {} /data/web_static/current".format(uncompressfd))
         return True
