@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """distribute an archive to web server"""
 import os
-from fabric.api import run, put
+from fabric.api import run, put, env
 env.hosts = ['34.207.236.163', '107.20.69.130']
 
 
