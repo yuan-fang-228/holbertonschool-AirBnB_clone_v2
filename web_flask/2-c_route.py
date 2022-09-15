@@ -22,7 +22,7 @@ def show_hnbn():
 def show_ctext(text):
     """display C followed by the value of text"""
     string = text.replace("_", " ")
-    return f"C {string}"
+    return "C {}".format(string)
 
 
 if __name__ == "__main__":
