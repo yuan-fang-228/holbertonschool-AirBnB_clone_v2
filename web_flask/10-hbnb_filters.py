@@ -14,7 +14,9 @@ def show_states_cities():
     """show states and cities to html page"""
     allStates = storage.all(State)
     allAmenities = storage.all(Amenity)
-    return render_template("10-hbnb_filters.html", allStates=allStates, allAmenities=allAmenities)
+    return render_template("10-hbnb_filters.html",
+                           allStates=allStates,
+                           allAmenities=allAmenities)
 
 
 @app.teardown_appcontext
@@ -23,5 +25,5 @@ def remove_currentsession(exc):
     storage.close()
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     app.run(host="0.0.0.0", port="5000")
