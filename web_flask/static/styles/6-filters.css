@@ -54,7 +54,7 @@ section.filters {
     max-width: 100%;
     position: relative;
     max-height: 300px;
-    overflow-y: auto;
+    overflow-y: scroll;
 }
 ul {
     list-style-type: none;
