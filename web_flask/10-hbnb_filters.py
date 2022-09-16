@@ -3,7 +3,7 @@
 from flask import Flask
 from flask import render_template
 from models import storage
-from models import State
+from models import State, Amentity
 
 
 app = Flask(__name__)
@@ -12,8 +12,8 @@ app = Flask(__name__)
 @app.route("/hbnb_filters/", strict_slashes=False)
 def show_states_cities():
     """show states and cities to html page"""
-    allStates = storage.all("State")
-    allAmentities = storage.all("Amentity")
+    allStates = storage.all(State)
+    allAmentities = storage.all(Amentity)
     return render_template("10-hbnb_filters.py, allStates=allStates,
                            allAmentities=allAmentities")
 
@@ -22,3 +22,7 @@ def show_states_cities():
 def remove_currentsession(exc):
     """remove current session"""
     storage.close()
+
+
+if __name__=="__main__":
+    app.run(host="0.0.0.0", port="5000")
