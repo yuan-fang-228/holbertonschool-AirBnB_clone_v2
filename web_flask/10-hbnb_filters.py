@@ -3,7 +3,7 @@
 from flask import Flask
 from flask import render_template
 from models import storage
-from models import State, Amentity
+from models import State, Amenity
 
 
 app = Flask(__name__)
@@ -13,9 +13,8 @@ app = Flask(__name__)
 def show_states_cities():
     """show states and cities to html page"""
     allStates = storage.all(State)
-    allAmentities = storage.all(Amentity)
-    return render_template("10-hbnb_filters.py, allStates=allStates,
-                           allAmentities=allAmentities")
+    allAmenities = storage.all(Amenity)
+    return render_template("10-hbnb_filters.html", allStates=allStates, allAmenities=allAmenities)
 
 
 @app.teardown_appcontext
