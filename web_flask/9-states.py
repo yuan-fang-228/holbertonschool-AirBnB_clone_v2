@@ -10,7 +10,7 @@ app = Flask(__name__)
 
 @app.route("/states", strict_slashes=False)
 @app.route("/states/<id>", strict_slashes=False)
-def show_state(id):
+def show_state(id=None):
     """show the states on the HTML page"""
     allStates = storage.all(State)
     if id is None:
