@@ -21,7 +21,7 @@
                     <ul class="popover">
 			{% for state in allStates.values() | sort(attribute="name") %}
                         <li>
-			    <h2>{{ state.name }}:</h2>
+			    <h2>{{ state.name }}</h2>
                             <ul>
 			    {% for city in state.cities | sort(attribute="name") %}
 			    <li>{{ city.name }}</li>
